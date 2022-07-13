@@ -1,0 +1,26 @@
+import styles from '../styles/Home.module.css'
+export const getStaticProps = async () => {
+
+    const res = await fetch (`https://api.nasa.gov/planetary/apod?api_key=kFmddBwJLrmakNjj3ldgKFNrLimZySkaxK70cFMU`);
+    const data = await res.json();
+    return {
+        props: {data: data}
+    }
+}
+const Main = ({data}) => {
+    
+    console.log(data)
+    return ( 
+            <div className={styles.container}>
+                <header>
+                    <h1>THE PICTURE OF THE DAY</h1>
+                </header>
+                <img src={data.hdurl}
+                 className={styles.imagem}/>
+           </div>
+  )
+}
+
+export default Main;
+
+
