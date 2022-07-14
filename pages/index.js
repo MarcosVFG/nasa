@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css'
 export const getStaticProps = async () => {
 
-    const res = await fetch (`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`);
+    const res = await fetch (`https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_KEY}`);
     const data = await res.json();
     return {
         props: {data: data}
